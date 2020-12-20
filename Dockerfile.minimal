@@ -1,14 +1,15 @@
 #################################################################################
 # Builder Image
-FROM quay.io/cloudctl/ubi:micro as micro
 FROM registry.access.redhat.com/ubi8/ubi as builder
-FROM builder
 ARG BUILD_PATH='/rootfs'
 
 #################################################################################
 # DNF Package Install List
 ARG DNF_LIST="\
   dnf \
+  openssl \
+  coreutils-single \
+  glibc-minimal-langpack \
 "
 
 #################################################################################
@@ -24,7 +25,6 @@ ARG DNF_FLAGS_EXTRA="\
   ${DNF_FLAGS} \
 "
 
-COPY --from=micro / ${BUILD_PATH}
 #################################################################################
 # Build Rootfs
 RUN set -ex \
@@ -50,6 +50,6 @@ LABEL \
   distribution-scope="public"                                                   \
   io.openshift.tags="minimal"                                                   \
   io.k8s.display-name="minimal"                                                 \
-  summary="Minimal Base Image | Micro Red Hat UBI Supportable Image"            \
-  description="Minimal Base Image | Micro Red Hat UBI Supportable Image"        \
-  io.k8s.description="Minimal Base Image | Micro Red Hat UBI Supportable Image"
+  summary="Minimal Base Image | Red Hat UBI Supportable Image"            \
+  description="Minimal Base Image | Red Hat UBI Supportable Image"        \
+  io.k8s.description="Minimal Base Image | Red Hat UBI Supportable Image"
