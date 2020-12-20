@@ -8,15 +8,11 @@ ARG BUILD_PATH='/rootfs'
 ARG DNF_LIST="\
   git \
   tar \
-  dnf \
+  pigz \
   bash \
   curl \
-  pigz \
   unzip \
   bsdtar \
-  openssl \
-  coreutils \
-  glibc-minimal-langpack \
 "
 
 #################################################################################
@@ -45,12 +41,8 @@ RUN set -ex \
            ${BUILD_PATH}/var/lib/rpm \
     && echo
 
-#################################################################################
-# Build Image from Rootfs
-FROM scratch
-COPY --from=builder /rootfs /
-CMD /bin/sh
 
+CMD /bin/sh
 #################################################################################
 # Finalize Image
 MAINTAINER ContainerCraft.io
