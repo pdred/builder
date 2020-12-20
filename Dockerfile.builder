@@ -31,11 +31,8 @@ ARG DNF_FLAGS_EXTRA="\
 RUN set -ex \
      && dnf install ${DNF_FLAGS_EXTRA} ${DNF_LIST} \
      && dnf clean all ${DNF_FLAGS} \
-     && cp -f /etc/yum.repos.d/ubi.repo ${BUILD_PATH}/etc/yum.repos.d/ubi.repo \
      && rm -rf \
            ${BUILD_PATH}/var/cache/* \
-           # Remove the following line to build RH supported UBI Micro
-           ${BUILD_PATH}/var/lib/rpm \
     && echo
 
 
