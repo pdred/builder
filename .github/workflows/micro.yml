@@ -80,6 +80,7 @@ jobs:
           docker.io/containercraft/${{ env.varimgname }}:${{ github.workflow }}-${{ env.varrundate }}-${{ github.sha }}
 
     - name: Build Minimal
+      uses: docker/build-push-action@v2
       with:
         context: .
         file: Dockerfile.minimal
@@ -100,7 +101,7 @@ jobs:
           docker.io/containercraft/${{ env.varimgname }}:minimal
           docker.io/containercraft/${{ env.varimgname }}:minimal-${{ env.varrundate }}-${{ github.sha }}
 
-    - name: Build Image 
+    - name: Build Builder
       uses: docker/build-push-action@v2
       with:
         context: .
