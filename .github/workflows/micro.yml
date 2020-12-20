@@ -71,12 +71,32 @@ jobs:
 
           quay.io/${{ secrets.GIT_PROJECT }}/${{ env.varimgname }}:${{ github.workflow }}
           quay.io/${{ secrets.GIT_PROJECT }}/${{ env.varimgname }}:${{ github.workflow }}-${{ env.varrundate }}-${{ github.sha }}
-
           docker.io/${{ secrets.GIT_PROJECT }}/${{ env.varimgname }}:${{ github.workflow }}
           docker.io/${{ secrets.GIT_PROJECT }}/${{ env.varimgname }}:${{ github.workflow }}-${{ env.varrundate }}-${{ github.sha }}
 
           quay.io/containercraft/${{ env.varimgname }}:${{ github.workflow }}
           quay.io/containercraft/${{ env.varimgname }}:${{ github.workflow }}-${{ env.varrundate }}-${{ github.sha }}
-
           docker.io/containercraft/${{ env.varimgname }}:${{ github.workflow }}
           docker.io/containercraft/${{ env.varimgname }}:${{ github.workflow }}-${{ env.varrundate }}-${{ github.sha }}
+
+    - name: Build Image 
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        file: Dockerfile.builder
+        platforms: linux/amd64
+        pull: true
+        push: true
+        tags: |
+
+          ghcr.io/${{ secrets.GIT_PROJECT }}/${{ env.varimgname }}:builder
+
+          quay.io/${{ secrets.GIT_PROJECT }}/${{ env.varimgname }}:builder
+          quay.io/${{ secrets.GIT_PROJECT }}/${{ env.varimgname }}:builder-${{ env.varrundate }}-${{ github.sha }}
+          docker.io/${{ secrets.GIT_PROJECT }}/${{ env.varimgname }}:builder
+          docker.io/${{ secrets.GIT_PROJECT }}/${{ env.varimgname }}:builder-${{ env.varrundate }}-${{ github.sha }}
+
+          quay.io/containercraft/${{ env.varimgname }}:builder
+          quay.io/containercraft/${{ env.varimgname }}:builder-${{ env.varrundate }}-${{ github.sha }}
+          docker.io/containercraft/${{ env.varimgname }}:builder
+          docker.io/containercraft/${{ env.varimgname }}:builder-${{ env.varrundate }}-${{ github.sha }}
