@@ -30,6 +30,8 @@ ARG DNF_FLAGS_EXTRA="\
 # Build Rootfs
 RUN set -ex \
      && dnf install ${DNF_FLAGS_EXTRA} ${DNF_LIST} \
+    && echo
+RUN set -ex \
      && dnf clean all ${DNF_FLAGS} \
      && rm -rf \
            ${BUILD_PATH}/var/cache/* \
