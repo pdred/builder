@@ -93,7 +93,7 @@ jobs:
 
           quay.io/${{ secrets.GIT_PROJECT }}/${{ env.varimgname }}:minimal
           quay.io/${{ secrets.GIT_PROJECT }}/${{ env.varimgname }}:minimal-${{ env.varrundate }}-${{ github.sha }}
-          docker.io/${{ secrets.GIT_PROJECT }}/${{ env.varimgname }}:minimal-${{ env.varimgname }}:
+          docker.io/${{ secrets.GIT_PROJECT }}/${{ env.varimgname }}:minimal
           docker.io/${{ secrets.GIT_PROJECT }}/${{ env.varimgname }}:minimal-${{ env.varrundate }}-${{ github.sha }}
 
           quay.io/containercraft/${{ env.varimgname }}:minimal

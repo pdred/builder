@@ -2,13 +2,13 @@
 # Builder Image
 FROM quay.io/cloudctl/ubi:micro as micro
 FROM registry.access.redhat.com/ubi8/ubi as builder
+FROM builder
 ARG BUILD_PATH='/rootfs'
 
 #################################################################################
 # DNF Package Install List
 ARG DNF_LIST="\
   dnf \
-  openssl \
 "
 
 #################################################################################
