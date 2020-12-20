@@ -9,11 +9,9 @@ COPY --from=micro / /rootfs
 # DNF Package Install List
 ARG DNF_LIST="\
   dnf \
-  openssl \
-  coreutils-single \
-  glibc-minimal-langpack \
 "
 
+COPY --from=micro / /rootfs
 #################################################################################
 # DNF Package Install Flags
 ARG DNF_FLAGS="\
