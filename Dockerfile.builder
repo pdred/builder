@@ -1,6 +1,6 @@
 #################################################################################
 # Builder Image
-FROM registry.access.redhat.com/ubi8/ubi as builder
+FROM quay.io/cloudctl/ubi:micro as builder
 ARG BUILD_PATH='/rootfs'
 
 #################################################################################
