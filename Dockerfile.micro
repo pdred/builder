@@ -33,8 +33,6 @@ RUN set -ex \
      && cp -f /etc/yum.repos.d/ubi.repo ${BUILD_PATH}/etc/yum.repos.d/ubi.repo \
      && rm -rf \
            ${BUILD_PATH}/var/cache/* \
-           # Remove the following line to build RH supported images
-           ${BUILD_PATH}/var/lib/rpm \
     && echo
 
 #################################################################################

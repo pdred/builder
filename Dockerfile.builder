@@ -1,7 +1,6 @@
 #################################################################################
 # Builder Image
-FROM quay.io/cloudctl/ubi:minimal as builder
-ARG BUILD_PATH='/rootfs'
+FROM quay.io/cloudctl/ubi:minimal
 
 #################################################################################
 # DNF Package Install List
@@ -20,7 +19,6 @@ ARG DNF_LIST="\
 ARG DNF_FLAGS="\
   -y \
   --releasever 8 \
-  --installroot /rootfs \
 "
 ARG DNF_FLAGS_EXTRA="\
   --nodocs \
