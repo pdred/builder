@@ -10,6 +10,7 @@ ARG DNF_LIST="\
   pigz \
   bash \
   curl \
+  rsync \
   unzip \
   bsdtar \
 "
