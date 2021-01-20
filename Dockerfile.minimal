@@ -63,7 +63,7 @@ LABEL \
   name="minimal"                                                                \
   distribution-scope="public"                                                   \
   io.openshift.tags="minimal"                                                   \
-  io.k8s.display-name="minimal"                                                 \
+  io.k8s.display-name="ubi:minimal"                                             \
   summary="Minimal Base Image | Red Hat UBI Supportable Image"            \
   description="Minimal Base Image | Red Hat UBI Supportable Image"        \
   io.k8s.description="Minimal Base Image | Red Hat UBI Supportable Image"
