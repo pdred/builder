@@ -6,7 +6,6 @@ ARG BUILD_PATH='/rootfs'
 #################################################################################
 # DNF Package Install List
 ARG DNF_LIST="\
-  dnf \
   openssl \
   coreutils-single \
   glibc-minimal-langpack \
